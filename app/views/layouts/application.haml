@@ -1,0 +1,18 @@
+!!! Strict
+%html{:xmlns => 'http://www.w3.org/1999/xhtml', 'xml:lang' => 'en', :lang => 'en'}
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => "text/html; charset=iso-8859-1"}
+    %title Vroomclick
+    != stylesheet_link_tag('http://yui.yahooapis.com/3.0.0/build/cssreset/reset-min.css', 'http://yui.yahooapis.com/3.0.0/build/cssfonts/fonts-min.css')
+    != stylesheet_link_tag('application')
+  %body
+    - if flash[:notice]
+      %p.flash-notice= flash[:notice]
+    #wrapper
+      %h1!= link_to 'Vroomclick', root_url
+      != yield
+    #admin-controls
+      %ul
+        %li!= link_to 'Add New Car', new_car_url
+        %li!= link_to 'Hide Admin Controls', '#'
+        %li!= link_to 'Logout', '#'

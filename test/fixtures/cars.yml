@@ -1,0 +1,8 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+maserati:
+  title: 2004 Maserati MC12
+
+bugatti:
+  title: 2006 Bugatti 16/4 Veyron
+  description: September 3rd 2005, Monterey, California - After years of applause, celebration, doubt, then ridicule, the first production Bugatti Veyron has hit the road as the fastest available supercar. Bugatti has little to be embarrassed about since the 16/4 is very similar to the extreme proposals made in 1999.

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  car: maserati
+  image_file_name: car-picture
+  image_content_type: image/jpeg
+  image_file_size: 2345
+
+two:
+  car: maserati
+  image_file_name: car-picture
+  image_content_type: image/jpeg
+  image_file_size: 2345

@@ -1,0 +1,9 @@
+*.log
+db/*.sqlite3
+tmp/**/*
+public/images/**/*
+public/cache/*
+public/stylesheets/*.css
+Session.vim
+.project
+Thumbs.db
