@@ -7,4 +7,4 @@ public/stylesheets/*.css
 Session.vim
 .project
 Thumbs.db
-#*#
+\#**\#
