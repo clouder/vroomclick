@@ -5,6 +5,7 @@ class CarsController < ApplicationController
   
   def show
     @car = Car.find params[:id]
+    redirect_to car_images_url(@car)
   end
   
   def destroy

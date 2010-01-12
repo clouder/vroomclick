@@ -1,13 +1,19 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+<% for i in 1..10 %>
+image_<%= i %>:
+  id: <%= i %>
   car: maserati
-  image_file_name: car-picture
+  image_file_name: image_<%= i %>.jpg
   image_content_type: image/jpeg
   image_file_size: 2345
+<% end %>
 
-two:
-  car: maserati
-  image_file_name: car-picture
+<% for i in 11..15 %>
+image_<%= i %>:
+  id: <%= i %>
+  car: bugatti
+  image_file_name: image_<%= i %>.jpg
   image_content_type: image/jpeg
   image_file_size: 2345
+<% end %>

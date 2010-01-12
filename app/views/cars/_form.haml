@@ -7,13 +7,8 @@
         - @car.errors.full_messages.each do |error|
           %li= error
   %ul
-    %li
-      != f.label :title
-    %li
-      != f.text_field :title
-    %li
-      != f.label :description, "Description"
-    %li
-      != f.text_area :description, {:rows => 5}
-    %li
-      != f.submit submit_text
+    %li!= f.label :title
+    %li!= f.text_field :title
+    %li!= f.label :description, "Description"
+    %li!= f.text_area :description, {:rows => 5}
+    %li!= f.submit submit_text

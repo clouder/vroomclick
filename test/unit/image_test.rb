@@ -17,4 +17,20 @@ class ImageTest < ActiveSupport::TestCase
   test 'an image should be able to belong to a car' do
     assert @image.respond_to?(:car)
   end
+  
+  test 'should not save image when file is not an image' do
+    f = open_file 'file.txt'
+    @image.image = f
+    assert !@image.save
+  end
+  
+  test 'should save image when file is a jpg' do
+    f = open_file 'lambo.jpg'
+    @image.image = f
+    assert @image.save
+  end
+  
+  def open_file(file_name)
+    File.open(File.join(Rails.root, 'test', 'fixtures', 'files', file_name))
+  end
 end

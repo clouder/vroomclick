@@ -14,5 +14,8 @@
     #admin-controls
       %ul
         %li!= link_to 'Add New Car', new_car_url
-        %li!= link_to 'Hide Admin Controls', '#'
+        - if @car and !@car.new_record?
+          %li!= link_to 'Edit Details', edit_car_url(@car)
+          %li!= link_to 'Add Image', new_car_image_url(@car)
+        -#%li!= link_to 'Hide Admin Controls', '#'
         %li!= link_to 'Logout', '#'

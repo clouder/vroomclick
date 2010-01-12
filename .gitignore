@@ -4,6 +4,7 @@ tmp/**/*
 public/images/**/*
 public/cache/*
 public/stylesheets/*.css
+public/system/
 Session.vim
 .project
 Thumbs.db

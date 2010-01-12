@@ -1,0 +1,14 @@
+%h2= "Add new image to #{@car.title}"
+
+- form_for [@car, @image], :html => {:multipart => true} do |f|
+  - unless @image.errors.empty?
+    .form_validation_errors
+      %h2 Uh-oh something is wrong...
+      %h3= "#{pluralize(@image.errors.count, 'error')} must be corrected to add this image."
+      %ul
+        - @image.errors.full_messages.each do |error|
+          %li= error
+  %ul
+    %li!= f.label :image
+    %li!= f.file_field :image
+    %li!= f.submit 'Add this image'

@@ -13,4 +13,15 @@ class CarTest < ActiveSupport::TestCase
     @car.title = ''
     assert !@car.save
   end
+  
+  test 'a car should be able to have many images' do
+    assert @car.respond_to?(:images)
+  end
+  
+  test 'should remove related images when a car is removed' do
+    car = cars(:bugatti)
+    assert_difference 'Image.count', -5 do
+      car.destroy
+    end
+  end
 end

@@ -5,12 +5,16 @@ class CarsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:cars)
+    assert_select 'ul#cars>li', 2 do
+      assert_select 'a>img[src=?]', /.*?thumb.*?image_1.jpg$/
+      assert_select 'a>img[src=?]', /.*?thumb.*?image_11.jpg$/
+    end
   end
   
   test 'should get show' do
     get :show, {:id => cars(:maserati)}
-    assert_response :success
-    assert_not_nil assigns(:car)
+    assert_response :redirect
+    assert_redirected_to car_images_path(assigns(:car))
   end
   
   test 'should delete a car' do

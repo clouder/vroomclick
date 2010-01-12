@@ -7,6 +7,7 @@
 #   Major.create(:title => 'Daley', :city => cities.first)
 
 Car.destroy_all
+Image.destroy_all
 
 [{:title => '2004 Maserati MC12'},
  {:title => '2006 Bugatti 16/4 Veyron', :description => 'September 3rd 2005, Monterey, California - After years of applause, celebration, doubt, then ridicule, the first production Bugatti Veyron has hit the road as the fastest available supercar. Bugatti has little to be embarrassed about since the 16/4 is very similar to the extreme proposals made in 1999.'},
@@ -15,4 +16,13 @@ Car.destroy_all
  {:title => '2005 Pagani Zonda F'},
  {:title => '2002 Lamborghini Murcielago'}].each do |v|
    Car.create(v)
+ end
+ 
+ Car.all.each do |c|
+   rand(10).times do
+     f = File.open(File.join(Rails.root, 'test', 'fixtures', 'files', 'lambo.jpg'))
+     i = c.images.new
+     i.image = f
+     i.save
+   end
  end
