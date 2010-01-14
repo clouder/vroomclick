@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100110094515) do
+ActiveRecord::Schema.define(:version => 20100114051633) do
 
   create_table "cars", :force => true do |t|
     t.string   "title"
@@ -26,5 +26,14 @@ ActiveRecord::Schema.define(:version => 20100110094515) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "settings", :force => true do |t|
+    t.string   "var",        :null => false
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["var"], :name => "index_settings_on_var"
 
 end

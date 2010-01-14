@@ -1,0 +1,9 @@
+%h2 Settings Manager
+- form_tag '/settings', :method => :put, :id => 'settings' do
+  %ul
+    %li
+      != label :settings, :dealership_name, 'Dealership Name'
+    %li
+      != text_field :settings, :dealership_name, :value => Settings.dealership_name
+    %li
+      != submit_tag 'Save Settings'

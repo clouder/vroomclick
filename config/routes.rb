@@ -2,6 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :cars do |cars|
     cars.resources :images
   end
+  
+  map.resource :settings
 
   # The priority is based upon order of creation: first created -> highest priority.
 
