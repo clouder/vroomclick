@@ -3,5 +3,5 @@
   - for car in @cars
     %li
       %h3!= link_to h(car.title), car, :title => car.title
-      != link_to image_tag(car.images.first.image.url(:thumbnail)), car, :title => car.title
+      != link_to image_tag(first_car_image(car, :thumbnail)), car, :title => car.title
       != link_to 'Remove', car, :method => :delete, :class => 'remover'

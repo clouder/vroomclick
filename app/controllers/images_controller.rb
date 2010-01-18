@@ -3,6 +3,7 @@ class ImagesController < ApplicationController
   
   def index
     @image = @car.images.first :order => 'id ASC'
+    @image_url = @image ? @image.image.url : '/images/no-car-image-original.jpg'
   end
   
   def show
