@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_filter :load_car
+  before_filter :login_required, :except => [:index, :show]
   
   def index
     @image = @car.images.first :order => 'id ASC'
@@ -8,6 +9,7 @@ class ImagesController < ApplicationController
   
   def show
     @image = @car.images.find(params[:id])
+    @image_url = @image.image.url
     render :index
   end
   

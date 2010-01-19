@@ -1,0 +1,19 @@
+-# title "Log in"
+
+-#%p== Don't have an account? #{link_to "Sign up!", signup_path}
+
+- form_for @user_session do |f|
+  -#!= f.error_messages
+  - unless @user_session.errors.empty?
+    .form_validation_errors
+      %h2 Uh-oh something is wrong...
+      %h3= "#{pluralize(@user_session.errors.count, 'error')} must be corrected."
+      %ul
+        - @user_session.errors.full_messages.each do |error|
+          %li= error
+  %ul
+    %li!= f.label :login
+    %li!= f.text_field :username
+    %li!= f.label :password
+    %li!= f.password_field :password
+    %li!= f.submit "Log in"

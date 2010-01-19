@@ -6,4 +6,7 @@
 
 %ul#thumbnails
   - for image in @car.images
-    %li!= link_to image_tag(image.image.url(:thumbnail)), car_image_url(@car, image)
+    %li
+      != link_to image_tag(image.image.url(:thumbnail)), car_image_url(@car, image)
+      - if logged_in?
+        != link_to 'Remove', [@car, image], :method => :delete, :class => 'remover'

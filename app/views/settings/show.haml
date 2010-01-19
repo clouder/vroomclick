@@ -1,9 +1,15 @@
 %h2 Settings Manager
 - form_tag '/settings', :method => :put, :id => 'settings' do
   %ul
-    %li
-      != label :settings, :dealership_name, 'Dealership Name'
-    %li
-      != text_field :settings, :dealership_name, :value => Settings.dealership_name
-    %li
-      != submit_tag 'Save Settings'
+    %li!= label :settings, :dealership_name, 'Dealership Name'
+    %li!= text_field :settings, :dealership_name, :value => Settings.dealership_name
+    -#%li!= submit_tag 'Save Settings'     
+    -# form_for current_user do |f|
+    -#  %ul
+    %li!= label :user, :username, 'Login'
+    %li!= text_field :user, :username, :value => current_user.username
+    %li!= label :user, :password, 'New Password'
+    %li!= password_field :user, :password
+    %li!= label :user, :password_confirmation, 'New Password Confirmation'
+    %li!= password_field :user, :password_confirmation
+    %li!= submit_tag 'Save Changes'

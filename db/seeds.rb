@@ -8,6 +8,7 @@
 
 Car.destroy_all
 Image.destroy_all
+User.destroy_all
 
 [{:title => '2004 Maserati MC12'},
  {:title => '2006 Bugatti 16/4 Veyron', :description => 'September 3rd 2005, Monterey, California - After years of applause, celebration, doubt, then ridicule, the first production Bugatti Veyron has hit the road as the fastest available supercar. Bugatti has little to be embarrassed about since the 16/4 is very similar to the extreme proposals made in 1999.'},
@@ -20,9 +21,11 @@ Image.destroy_all
  
  Car.all.each do |c|
    rand(10).times do
-     f = File.open(File.join(Rails.root, 'test', 'fixtures', 'files', 'lambo.jpg'))
+     f = File.open(File.join(Rails.root, 'test', 'fixtures', 'files', "lambo#{rand(4)}.jpg"))
      i = c.images.new
      i.image = f
      i.save
    end
  end
+ 
+ User.create(:username => 'admin', :password => 'admin', :password_confirmation => 'admin')

@@ -1,4 +1,6 @@
 class CarsController < ApplicationController
+  before_filter :login_required, :except => [:index, :show]
+  
   def index
     @cars = Car.all
   end
