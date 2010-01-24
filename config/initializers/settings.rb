@@ -10,3 +10,5 @@ class Settings
 end
 
 Settings.defaults[:dealership_name] = 'Vroomclick'
+
+Haml::Template.options[:escape_html] = true
