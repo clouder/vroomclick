@@ -2,6 +2,14 @@
   :width 960px
   :text-align center
   :margin auto
+  
+h1
+  :height 100px
+  :background-image url('../images/main-header.png')
+  :text-indent -999%
+  a
+    :display block
+    :height 100px
 
 h2
   :text-align left
@@ -28,17 +36,6 @@ ul#cars
       :text-decoration none
       :display block
       :color #333
-    a.remover
-      :font-weight bold
-      :font-size 14px
-      :margin 10px 0
-      :padding 5px 0
-      :border 1px solid #fbb
-      :color #f22
-    a.remover:hover
-      :background-color #ff9999
-      :border 1px solid #f00
-      :color white
 
 img
   :clear both
@@ -84,9 +81,24 @@ ul#thumbnails
   :border-bottom 1px solid #cc9999
   :background-color #ee9999
 
-//ADMIN SECTION STYLING
-  PULL THIS OUT EVENTUALLY
-  
+// ************
+// Admin Styles
+// ************
+
+ul#cars, ul#thumbnails
+  li
+    a.remover
+      :font-weight bold
+      :font-size 14px
+      :margin 10px 0
+      :padding 5px 0
+      :border 1px solid #fbb
+      :color #f22
+    a.remover:hover
+      :background-color #ff9999
+      :border 1px solid #f00
+      :color white
+
 form
   margin: 10px 0 0 20px
   ul

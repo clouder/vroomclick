@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class CarsControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+  
   test 'should get index' do
     get :index
     assert_response :success
@@ -18,6 +20,7 @@ class CarsControllerTest < ActionController::TestCase
   end
   
   test 'should delete a car' do
+    UserSession.create(users(:foo))
     assert_difference('Car.count', -1) do
       delete :destroy, {:id => cars(:maserati)}
     end
@@ -28,6 +31,7 @@ class CarsControllerTest < ActionController::TestCase
   end
   
   test 'should create a car' do
+    UserSession.create(users(:foo))
     assert_difference('Car.count') do
       post :create, :car => {:title => '1992 Chevrolet Corsica'}
     end
@@ -38,6 +42,7 @@ class CarsControllerTest < ActionController::TestCase
   end
   
   test 'should get new' do
+    UserSession.create(users(:foo))
     get :new
     assert_response :success
     assert_not_nil assigns(:car)
@@ -45,14 +50,17 @@ class CarsControllerTest < ActionController::TestCase
   end
   
   test 'should not create car and redisplay new car form' do
+    UserSession.create(users(:foo))
     assert_no_difference('Car.count') do
       post :create, :car => {:title => ''}
     end
+    assert_response :success
     assert_template :new
     form_errors_assertions
   end
   
   test 'should get edit' do
+    UserSession.create(users(:foo))
     get :edit, {:id => cars(:maserati)}
     assert_response :success
     assert_not_nil assigns(:car)
@@ -60,6 +68,7 @@ class CarsControllerTest < ActionController::TestCase
   end
   
   test 'should update car title and redirect to show update' do
+    UserSession.create(users(:foo))
     put :update, {:id => cars(:maserati), :car => {:title => 'new title'}}
     assert_response :redirect
     assert_redirected_to car_path(cars(:maserati))
@@ -67,6 +76,7 @@ class CarsControllerTest < ActionController::TestCase
   end
   
   test 'should update car description and redirect to show update' do
+    UserSession.create(users(:foo))
     put :update, {:id => cars(:maserati), :car => {:description => 'new description'}}
     assert_response :redirect
     assert_redirected_to car_path(cars(:maserati))
@@ -74,6 +84,7 @@ class CarsControllerTest < ActionController::TestCase
   end
   
   test 'should not update car with a blank title and redisplay edit form' do
+    UserSession.create(users(:foo))
     put :update, {:id => cars(:maserati), :car => {:title => ''}}
     assert_response :success
     assert_not_nil assigns(:car)

@@ -5,6 +5,8 @@
     %title= Settings.dealership_name
     != stylesheet_link_tag('http://yui.yahooapis.com/3.0.0/build/cssreset/reset-min.css', 'http://yui.yahooapis.com/3.0.0/build/cssfonts/fonts-min.css')
     != stylesheet_link_tag('application')
+    - if logged_in?
+      != stylesheet_link_tag('admin')
   %body
     - if flash[:notice]
       %p.flash-notice= flash[:notice]

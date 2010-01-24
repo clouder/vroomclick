@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ImagesControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+  
   test 'should get index' do
     get :index, {:car_id => cars(:maserati)}
     assert_response :success
@@ -18,6 +20,7 @@ class ImagesControllerTest < ActionController::TestCase
   end
   
   test 'should get new' do
+    UserSession.create(users(:foo))
     get :new, {:car_id => cars(:maserati)}
     assert_response :success
     assert_common_assigns
@@ -25,6 +28,7 @@ class ImagesControllerTest < ActionController::TestCase
   end
   
   test 'should add an image to maserati' do
+    UserSession.create(users(:foo))
     assert_difference 'Image.count' do
       post :create, {:car_id => cars(:maserati), :image => {:image => fixture_file_upload(File.join('files', 'lambo.jpg'), 'image/jpg', :binary)}}
     end
@@ -34,6 +38,7 @@ class ImagesControllerTest < ActionController::TestCase
   end
   
   test 'should not add an image to maserati when the file is not an image' do
+    UserSession.create(users(:foo))
     assert_no_difference 'Image.count' do
       post :create, {:car_id => cars(:maserati), :image => {:image => fixture_file_upload(File.join('files', 'file.txt'), 'text/plain', :binary)}}
     end
